@@ -1,7 +1,18 @@
 {
+  "version": 2,
   "functions": {
-    "api/analyze.js": {
-      "runtime": "edge"
+    "api/*.js": {
+      "runtime": "vercel-node@latest"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
 }
